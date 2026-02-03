@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauman Ali — Paid Media Portfolio — January 2026</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        :root {
+            --bg-primary: #0B0F14;
+            --bg-secondary: #111820;
+            --bg-card: #161D27;
+            --text-primary: #FFFFFF;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --accent: #3B82F6;
+            --accent-hover: #2563EB;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --border: #1E293B;
+            --border-hover: #334155;
+        }
+
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography */
+        h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
+        h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
+        h3 { font-size: 1.25rem; font-weight: 600; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+        
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition: all 0.2s ease;
+        }
+        .card:hover { border-color: var(--border-hover); }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(11, 15, 20, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent) 0%, #8B5CF6 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .logo-text { font-weight: 700; font-size: 18px; }
+        
+        .nav { display: flex; align-items: center; gap: 32px; }
+        .nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav a:hover { color: var(--text-primary); }
+        
+        .header-cta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .availability-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--success);
+        }
+        .availability-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 72px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59, 130, 246, 0.15), transparent);
+        }
+        .hero-content {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            padding: 80px 0;
+        }
+        .hero-intro {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
+        }
+        .hero h1 { margin-bottom: 24px; }
+        .hero h1 span { color: var(--accent); }
+        .hero-desc {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .stat-card {
+            padding: 28px;
+        }
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            letter-spacing: -0.02em;
+        }
+        .stat-value.highlight { color: var(--success); }
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+        
+        /* Section */
+        .section {
+            padding: 120px 0;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        .section-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+        .section-title { margin-bottom: 16px; }
+        .section-desc {
+            font-size: 17px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Expertise Grid */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .expertise-card {
+            padding: 32px;
+        }
+        .expertise-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+        .expertise-icon.meta { background: rgba(59, 130, 246, 0.1); }
+        .expertise-icon.google { background: rgba(234, 67, 53, 0.1); }
+        .expertise-icon.tiktok { background: rgba(255, 0, 80, 0.1); }
+        .expertise-card h3 { margin-bottom: 8px; }
+        .expertise-card p { color: var(--text-secondary); font-size: 14px; margin-bottom: 20px; }
+        .expertise-years {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        /* Process */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .process-card { padding: 40px 32px; position: relative; }
+        .process-number {
+            font-size: 64px;
+            font-weight: 800;
+            color: var(--bg-secondary);
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            line-height: 1;
+        }
+        .process-card h3 { margin-bottom: 16px; position: relative; }
+        .process-card p { color: var(--text-secondary); font-size: 15px; position: relative; }
+        
+        /* Case Studies */
+        .case-study {
+            margin-bottom: 48px;
+            overflow: hidden;
+        }
+        .case-study:last-child { margin-bottom: 0; }
+        .case-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 40px;
+            border-bottom: 1px solid var(--border);
+        }
+        .case-brand h3 { font-size: 1.5rem; margin-bottom: 8px; }
+        .case-brand p { color: var(--text-secondary); }
+        .case-tags { display: flex; gap: 8px; }
+        .case-tag {
+            padding: 6px 14px;
+            background: var(--bg-secondary);
+            border-radius: 100px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .case-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+        }
+        .case-metric {
+            padding: 32px;
+            background: var(--bg-card);
+            text-align: center;
+        }
+        .case-metric-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .case-metric-value.success { color: var(--success); }
+        .case-metric-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .case-content { padding: 40px; }
+        .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+        .case-section h4 {
+            font-size: 13px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+        .case-section p { color: var(--text-secondary); font-size: 15px; line-height: 1.7; }
+        .case-list { list-style: none; }
+        .case-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+        .case-list li::before {
+            content: "→";
+            color: var(--accent);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .case-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 40px;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+        }
+        .case-verified {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .case-verified svg { color: var(--success); }
+        
+        /* Deliverables */
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .deliverable-card { padding: 36px; }
+        .deliverable-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--accent);
+        }
+        .deliverable-card h3 { margin-bottom: 12px; }
+        .deliverable-card > p { color: var(--text-secondary); font-size: 14px; margin-bottom: 20px; }
+        .deliverable-list { list-style: none; }
+        .deliverable-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .deliverable-list li svg { color: var(--success); flex-shrink: 0; }
+        
+        /* Testimonial */
+        .testimonial {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .testimonial-quote {
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            font-weight: 500;
+            line-height: 1.5;
+            margin-bottom: 32px;
+            color: var(--text-primary);
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+        .testimonial-avatar {
+            width: 56px;
+            height: 56px;
+            background: var(--bg-card);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+        .testimonial-info { text-align: left; }
+        .testimonial-name { font-weight: 600; }
+        .testimonial-role { font-size: 14px; color: var(--text-muted); }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .cta-content h2 { margin-bottom: 20px; }
+        .cta-content > p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 48px;
+        }
+        .contact-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+        .contact-link:hover { color: var(--accent); }
+        
+        /* Footer */
+        .footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        .footer-brand .logo-icon { width: 32px; height: 32px; font-size: 14px; }
+        .footer-copy { font-size: 13px; color: var(--text-muted); }
+        
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            max-width: 560px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 28px;
+            border-bottom: 1px solid var(--border);
+        }
+        .modal-header h3 { font-size: 1.25rem; }
+        .modal-close {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-secondary);
+            border: none;
+            border-radius: 10px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .modal-close:hover { background: var(--border); color: var(--text-primary); }
+        .modal-body { padding: 28px; }
+        .form-group { margin-bottom: 20px; }
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .form-textarea { resize: vertical; min-height: 120px; }
+        .form-submit {
+            width: 100%;
+            padding: 16px;
+            background: var(--accent);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .form-submit:hover { background: var(--accent-hover); }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content { grid-template-columns: 1fr; gap: 48px; }
+            .expertise-grid, .process-grid { grid-template-columns: 1fr; }
+            .case-metrics { grid-template-columns: repeat(2, 1fr); }
+            .case-grid { grid-template-columns: 1fr; gap: 32px; }
+        }
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .section { padding: 80px 0; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .deliverables-grid { grid-template-columns: 1fr; }
+            .case-header, .case-content, .case-footer { padding: 24px; }
+            .cta-buttons { flex-direction: column; }
+            .contact-links { flex-direction: column; gap: 16px; }
+            .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+        }
+        
+        /* Print Styles - Light Theme for Readability */
+        @media print {
+            @page { 
+                size: A4; 
+                margin: 15mm 20mm; 
+            }
+            
+            * { 
+                -webkit-print-color-adjust: exact !important; 
+                print-color-adjust: exact !important; 
+            }
+            
+            body {
+                background: white !important;
+                color: #1a1a1a !important;
+                font-size: 11pt;
+                line-height: 1.5;
+            }
+            
+            .header, .modal-overlay, .btn, .hero-buttons, .cta-buttons, .case-footer button { 
+                display: none !important; 
+            }
+            
+            .hero {
+                min-height: auto !important;
+                padding: 0 !important;
+                page-break-after: always;
+            }
+            .hero-bg { display: none; }
+            .hero-content {
+                display: block !important;
+                padding: 0 !important;
+            }
+            .hero h1 { 
+                font-size: 28pt !important; 
+                color: #1a1a1a !important;
+                margin-bottom: 16px !important;
+            }
+            .hero h1 span { color: #2563EB !important; }
+            .hero-intro { 
+                color: #2563EB !important;
+                margin-bottom: 12px !important;
+            }
+            .hero-desc { 
+                color: #4a4a4a !important;
+                font-size: 12pt !important;
+                margin-bottom: 32px !important;
+                max-width: 100% !important;
+            }
+            
+            .stats-grid {
+                display: grid !important;
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 16px !important;
+                margin-top: 24px !important;
+            }
+            .stat-card {
+                background: #f8f9fa !important;
+                border: 1px solid #e5e7eb !important;
+                border-radius: 8px !important;
+                padding: 20px !important;
+            }
+            .stat-value { 
+                font-size: 20pt !important; 
+                color: #1a1a1a !important;
+            }
+            .stat-value.highlight { color: #059669 !important; }
+            .stat-label { 
+                color: #6b7280 !important;
+                font-size: 9pt !important;
+            }
+            
+            .section {
+                padding: 32px 0 !important;
+                page-break-inside: avoid;
+            }
+            .section-label { color: #2563EB !important; }
+            .section-title { 
+                color: #1a1a1a !important;
+                font-size: 18pt !important;
+            }
+            .section-desc { color: #4a4a4a !important; }
+            
+            .card {
+                background: #ffffff !important;
+                border: 1px solid #e5e7eb !important;
+            }
+            
+            .expertise-grid, .process-grid {
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 16px !important;
+            }
+            .expertise-card, .process-card {
+                background: #f8f9fa !important;
+                border: 1px solid #e5e7eb !important;
+                padding: 20px !important;
+            }
+            .expertise-card h3, .process-card h3 { 
+                color: #1a1a1a !important;
+                font-size: 12pt !important;
+            }
+            .expertise-card p, .process-card p { 
+                color: #4a4a4a !important;
+                font-size: 10pt !important;
+            }
+            .expertise-icon {
+                width: 40px !important;
+                height: 40px !important;
+                margin-bottom: 16px !important;
+            }
+            .expertise-years {
+                background: #dbeafe !important;
+                color: #1d4ed8 !important;
+            }
+            .process-number {
+                color: #e5e7eb !important;
+                font-size: 48px !important;
+            }
+            
+            .case-study {
+                page-break-inside: avoid;
+                margin-bottom: 24px !important;
+                border: 1px solid #e5e7eb !important;
+                border-radius: 12px !important;
+                overflow: hidden !important;
+            }
+            .case-header {
+                background: #f8f9fa !important;
+                border-bottom: 1px solid #e5e7eb !important;
+                padding: 20px !important;
+            }
+            .case-brand h3 { 
+                color: #1a1a1a !important;
+                font-size: 14pt !important;
+            }
+            .case-brand p { color: #6b7280 !important; }
+            .case-tag {
+                background: #e5e7eb !important;
+                color: #4a4a4a !important;
+            }
+            .case-metrics {
+                background: #e5e7eb !important;
+            }
+            .case-metric {
+                background: white !important;
+                padding: 16px !important;
+            }
+            .case-metric-value { 
+                color: #1a1a1a !important;
+                font-size: 16pt !important;
+            }
+            .case-metric-value.success { color: #059669 !important; }
+            .case-metric-label { 
+                color: #6b7280 !important;
+                font-size: 8pt !important;
+            }
+            .case-content { 
+                padding: 20px !important;
+                background: white !important;
+            }
+            .case-section h4 { 
+                color: #2563EB !important;
+                font-size: 10pt !important;
+            }
+            .case-section p, .case-list li { 
+                color: #4a4a4a !important;
+                font-size: 10pt !important;
+            }
+            .case-list li::before { color: #2563EB !important; }
+            .case-footer {
+                background: #f8f9fa !important;
+                padding: 12px 20px !important;
+            }
+            .case-verified { color: #6b7280 !important; }
+            .case-verified svg { color: #059669 !important; }
+            
+            .deliverables-grid {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 16px !important;
+            }
+            .deliverable-card {
+                background: #f8f9fa !important;
+                border: 1px solid #e5e7eb !important;
+                padding: 20px !important;
+            }
+            .deliverable-icon {
+                background: #dbeafe !important;
+            }
+            .deliverable-card h3 { 
+                color: #1a1a1a !important;
+                font-size: 12pt !important;
+            }
+            .deliverable-card > p { color: #4a4a4a !important; }
+            .deliverable-list li { color: #4a4a4a !important; }
+            .deliverable-list li svg { color: #059669 !important; }
+            
+            .testimonial {
+                background: #f8f9fa !important;
+                border: 1px solid #e5e7eb !important;
+                page-break-inside: avoid;
+            }
+            .testimonial-quote { 
+                color: #1a1a1a !important;
+                font-size: 14pt !important;
+            }
+            .testimonial-name { color: #1a1a1a !important; }
+            .testimonial-role { color: #6b7280 !important; }
+            .testimonial-avatar {
+                background: #e5e7eb !important;
+                color: #4a4a4a !important;
+            }
+            
+            .cta-section {
+                background: white !important;
+                page-break-before: always;
+            }
+            .cta-content h2 { 
+                color: #1a1a1a !important;
+                font-size: 18pt !important;
+            }
+            .cta-content > p { color: #4a4a4a !important; }
+            
+            .contact-links { display: block !important; text-align: center !important; }
+            .contact-link {
+                display: block !important;
+                color: #2563EB !important;
+                font-size: 12pt !important;
+                margin-bottom: 8px !important;
+            }
+            
+            .print-contact {
+                display: block !important;
+                margin-top: 32px;
+                padding: 24px;
+                background: #f0f9ff !important;
+                border: 2px solid #2563EB !important;
+                border-radius: 12px;
+                text-align: center;
+            }
+            .print-contact h4 {
+                color: #1d4ed8 !important;
+                font-size: 14pt !important;
+                margin-bottom: 16px !important;
+            }
+            .print-contact p {
+                color: #1a1a1a !important;
+                font-size: 12pt !important;
+                margin-bottom: 8px !important;
+            }
+            
+            .footer {
+                border-top: 1px solid #e5e7eb !important;
+                padding: 20px 0 !important;
+            }
+            .footer-brand, .footer-copy { color: #6b7280 !important; }
+            .footer-brand .logo-icon { display: none; }
+            
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+        }
+        
+        .print-only { display: none; }
+        .print-contact { display: none; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header no-print">
+        <div class="container header-inner">
+            <div class="logo">
+                <div class="logo-icon">N</div>
+                <span class="logo-text">Nauman Ali</span>
+            </div>
+            <nav class="nav">
+                <a href="#expertise">Expertise</a>
+                <a href="#process">Process</a>
+                <a href="#case-studies">Case Studies</a>
+                <a href="#deliverables">Deliverables</a>
+            </nav>
+            <div class="header-cta">
+                <div class="availability-badge">
+                    <span class="availability-dot"></span>
+                    Available January 2026
+                </div>
+                <button class="btn btn-primary" onclick="window.print()">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v12M5 10l7 7 7-7"/><path d="M5 21h14"/></svg>
+                    Download PDF
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <div>
+                <div class="hero-intro">Senior Paid Media Specialist</div>
+                <h1>I turn ad spend into <span>predictable revenue.</span></h1>
+                <p class="hero-desc">
+                    6+ years of hands-on experience scaling e-commerce and lead generation businesses through Meta, Google, and TikTok Ads. I don't experiment with your budget—I apply proven systems that deliver measurable ROI.
+                </p>
+                <div class="hero-buttons no-print">
+                    <a href="#case-studies" class="btn btn-primary">View Case Studies</a>
+                    <button class="btn btn-secondary" onclick="openModal()">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+                        Get In Touch
+                    </button>
+                </div>
+            </div>
+            <div class="stats-grid">
+                <div class="card stat-card">
+                    <div class="stat-value">$1.2M+</div>
+                    <div class="stat-label">Revenue Generated</div>
+                </div>
+                <div class="card stat-card">
+                    <div class="stat-value highlight">135K+</div>
+                    <div class="stat-label">Leads Delivered</div>
+                </div>
+                <div class="card stat-card">
+                    <div class="stat-value">13.26x</div>
+                    <div class="stat-label">Peak ROAS</div>
+                </div>
+                <div class="card stat-card">
+                    <div class="stat-value highlight">$660K+</div>
+                    <div class="stat-label">Ad Spend Managed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise -->
+    <section id="expertise" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Platform Expertise</div>
+                <h2 class="section-title">Deep Experience Across Major Ad Platforms</h2>
+                <p class="section-desc">I specialize in the platforms that drive real business results. No dabbling—only deep, hands-on expertise.</p>
+            </div>
+            <div class="expertise-grid">
+                <div class="card expertise-card">
+                    <div class="expertise-icon meta">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="#3B82F6"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                    </div>
+                    <h3>Meta Ads</h3>
+                    <p>Facebook & Instagram campaigns optimized for both e-commerce ROAS and lead generation cost efficiency.</p>
+                    <div class="expertise-years">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        6+ Years Experience
+                    </div>
+                </div>
+                <div class="card expertise-card">
+                    <div class="expertise-icon google">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="#EA4335"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                    </div>
+                    <h3>Google Ads</h3>
+                    <p>Search, Shopping, Display, and Performance Max campaigns for high-intent traffic acquisition.</p>
+                    <div class="expertise-years">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        4+ Years Experience
+                    </div>
+                </div>
+                <div class="card expertise-card">
+                    <div class="expertise-icon tiktok">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="#FF0050"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+                    </div>
+                    <h3>TikTok Ads</h3>
+                    <p>Short-form video campaigns that capture attention and convert for modern consumer brands.</p>
+                    <div class="expertise-years">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        2+ Years Experience
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">My Process</div>
+                <h2 class="section-title">How I Approach Every Account</h2>
+                <p class="section-desc">No guesswork. No burning budget on "tests." A systematic approach that protects your investment while finding scale.</p>
+            </div>
+            <div class="process-grid">
+                <div class="card process-card">
+                    <div class="process-number">01</div>
+                    <h3>Audit & Baseline</h3>
+                    <p>Deep dive into your existing account, conversion tracking, and attribution setup. I establish true baseline metrics before changing anything.</p>
+                </div>
+                <div class="card process-card">
+                    <div class="process-number">02</div>
+                    <h3>Test & Validate</h3>
+                    <p>Structured creative and audience testing with controlled spend. Winners are identified with statistical confidence before scaling begins.</p>
+                </div>
+                <div class="card process-card">
+                    <div class="process-number">03</div>
+                    <h3>Scale & Protect</h3>
+                    <p>Aggressive scaling with guardrails. CPA/ROAS thresholds, creative refresh cadence, and spend pacing rules protect efficiency at volume.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section id="case-studies" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Proof of Work</div>
+                <h2 class="section-title">Case Studies</h2>
+                <p class="section-desc">Real accounts. Real numbers. Real constraints. Every metric is verifiable with platform screenshots.</p>
+            </div>
+
+            <!-- Case Study 1: Furniture Bunny -->
+            <div class="card case-study">
+                <div class="case-header">
+                    <div class="case-brand">
+                        <h3>Furniture Bunny</h3>
+                        <p>High-AOV furniture brand — UK market</p>
+                    </div>
+                    <div class="case-tags">
+                        <span class="case-tag">🇬🇧 United Kingdom</span>
+                        <span class="case-tag">E-Commerce</span>
+                        <span class="case-tag">Meta Ads</span>
+                    </div>
+                </div>
+                <div class="case-metrics">
+                    <div class="case-metric">
+                        <div class="case-metric-value">£420K+</div>
+                        <div class="case-metric-label">Revenue Generated</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="case-metric-value success">13.26x</div>
+                        <div class="case-metric-label">Peak ROAS</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="case-metric-value">Klarna</div>
+                        <div class="case-metric-label">BNPL Integration</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="case-metric-value">12 mo</div>
+                        <div class="case-metric-label">Engagement</div>
+                    </div>
+                </div>
+                <div class="case-content">
+                    <div class="case-grid">
+                        <div class="case-section">
+                            <h4>The Challenge</h4>
+                            <p>High-AOV furniture (£800–£2,000+) requires exceptional trust signals and financing clarity. The account had strong products but inconsistent cold traffic efficiency. BNPL options were underutilized in creative messaging, leaving conversion potential on the table.</p>
+                        </div>
+                        <div class="case-section">
+                            <h4>My Execution</h4>
+                            <ul class="case-list">
+                                <li>Product isolation campaigns by SKU to prevent budget bleeding to low performers</li>
+                                <li>BNPL trust stacking (Klarna/Clearpay) prominently featured in primary creative</li>
+                                <li>Cold traffic segmented by intent level with separate creative sequences</li>
+                                <li>Spend scaled only after creative confirmation with ROAS > 2.5x threshold</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-footer">
+                    <div class="case-verified">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        Verified with Ads Manager & Shopify screenshots
+                    </div>
+                    <button class="btn btn-secondary no-print" onclick="openModal()">Request Evidence →</button>
+                </div>
+            </div>
+
+            <!-- Case Study 2: Vinh Giang -->
+            <div class="card case-study">
+                <div class="case-header">
+                    <div class="case-brand">
+                        <h3>Vinh Giang</h3>
+                        <p>High-ticket coaching & education funnel</p>
+                    </div>
+                    <div class="case-tags">
+                        <span class="case-tag">🌍 Global</span>
+                        <span class="case-tag">Lead Generation</span>
+                        <span class="case-tag">Meta Ads</span>
+                    </div>
+                </div>
+                <div class="case-metrics">
+                    <div class="case-metric">
+                        <div class="case-metric-value">135K+</div>
+                        <div class="case-metric-label">Total Leads</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="case-metric-value success">$3.86</div>
+                        <div class="case-metric-label">Avg. CPL</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="case-metric-value">$660K+</div>
+                        <div class="case-metric-label">Ad Spend Managed</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="case-metric-value">24 mo</div>
+                        <div class="case-metric-label">Engagement</div>
+                    </div>
+                </div>
+                <div class="case-content">
+                    <div class="case-grid">
+                        <div class="case-section">
+                            <h4>The Challenge</h4>
+                            <p>Scale lead volume significantly while maintaining lead quality at higher spend levels. Global targeting meant creative and offer testing had to account for market-specific nuances. The funnel needed to work across multiple time zones and cultures.</p>
+                        </div>
+                        <div class="case-section">
+                            <h4>My Execution</h4>
+                            <ul class="case-list">
+                                <li>High-volume lead form acquisition strategy to minimize friction</li>
+                                <li>Offer-led creative sequencing designed to pre-qualify buyer intent</li>
+                                <li>CRM feedback loop integration to optimize for downstream lead quality</li>
+                                <li>Cost control via audience saturation monitoring and creative rotation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-footer">
+                    <div class="case-verified">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        Verified with Ads Manager screenshots
+                    </div>
+                    <button class="btn btn-secondary no-print" onclick="openModal()">Request Evidence →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deliverables -->
+    <section id="deliverables" class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Working Together</div>
+                <h2 class="section-title">What You Get When You Hire Me</h2>
+                <p class="section-desc">Clear deliverables. No vague promises. Here's exactly what's included in every engagement.</p>
+            </div>
+            <div class="deliverables-grid">
+                <div class="card deliverable-card">
+                    <div class="deliverable-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    </div>
+                    <h3>Full Campaign Management</h3>
+                    <p>End-to-end ownership of your paid media accounts. Strategy, setup, optimization, and reporting—all handled.</p>
+                    <ul class="deliverable-list">
+                        <li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Campaign structure & setup</li>
+                        <li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Daily/weekly optimization</li>
+                        <li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Budget pacing & allocation</li>
+                    </ul>
+                </div>
+                <div class="card deliverable-card">
+                    <div class="deliverable-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    </div>
+                    <h3>Transparent Reporting</h3>
+                    <p>Weekly reports showing exactly what's happening. No vanity metrics—only the numbers that matter to your business.</p>
+                    <ul class="deliverable-list">
+                        <li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Weekly performance reports</li>
+                        <li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> ROAS/CPA trend tracking</li>
+                        <li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Spend vs. revenue analysis</li>
+                    </ul>
+                </div>
+                <div class="card deliverable-card">
+                    <div class="deliverable-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/></svg>
+                    </div>
+                    <h3>Creative Direction</h3>
+                    <p>Clear briefs for your creative team or designers. I know what converts—you get the specs to build it.</p>
+                    <ul class="deliverable-list">
+                        <li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Creative testing frameworks</li>
+                        <li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Performance-based briefs</li>
+                        <li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Hook & angle strategies</li>
+                    </ul>
+                </div>
+                <div class="card deliverable-card">
+                    <div class="deliverable-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                    </div>
+                    <h3>Direct Communication</h3>
+                    <p>No account managers. No middlemen. You work directly with me. Quick responses, clear updates, honest feedback.</p>
+                    <ul class="deliverable-list">
+                        <li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Slack/email access</li>
+                        <li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Same-day responses</li>
+                        <li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Weekly strategy calls</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="section testimonial">
+        <div class="container">
+            <div class="testimonial-content">
+                <div class="section-label" style="margin-bottom: 32px;">Client Testimonial</div>
+                <p class="testimonial-quote">"Nauman doesn't just run ads—he understands the entire customer journey. Our ROAS improved by 3x within the first quarter, and he's been instrumental in scaling our paid strategy profitably. Highly recommend."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">FB</div>
+                    <div class="testimonial-info">
+                        <div class="testimonial-name">Furniture Bunny</div>
+                        <div class="testimonial-role">UK E-Commerce Brand</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="section cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <div class="section-label">January 2026</div>
+                <h2>Ready to Scale Your Paid Media Profitably?</h2>
+                <p>I'm taking on a limited number of new clients in January 2026. If you're serious about growth and value working with an experienced specialist who prioritizes your ROI, let's talk.</p>
+                <div class="cta-buttons no-print">
+                    <button class="btn btn-primary" onclick="openModal()">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        Book a Strategy Call
+                    </button>
+                    <button class="btn btn-secondary" onclick="openModal()">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        Send a Message
+                    </button>
+                </div>
+                <div class="contact-links">
+                    <a href="https://linkedin.com/in/nauman-ali" target="_blank" class="contact-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://upwork.com/freelancers/naumanali" target="_blank" class="contact-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg>
+                        Upwork
+                    </a>
+                    <a href="https://fiverr.com/naumanali" target="_blank" class="contact-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-.85c-.546 0-.84.41-.84 1.092v2.466h-1.61v-3.558h-.684c-.547 0-.84.41-.84 1.092v2.466h-1.61V11.79h1.61v.74a1.47 1.47 0 0 1 1.376-.74c.677 0 1.162.251 1.455.79.361-.5.903-.79 1.58-.79h.413v1.883zm-7.966 3.558h-1.61v-1.37h1.61v1.37zm0-1.883h-1.61v-.74c-.396.5-.903.83-1.608.83-1.288 0-2.342-1.138-2.342-2.55 0-1.405 1.054-2.55 2.342-2.55.705 0 1.212.33 1.608.83v-.74h1.61v4.92zm-1.61-2.465c0-.678-.528-1.227-1.178-1.227s-1.178.549-1.178 1.227c0 .679.528 1.228 1.178 1.228s1.178-.549 1.178-1.228zm-5.322 2.465c-1.413 0-2.56-1.138-2.56-2.55 0-1.405 1.147-2.55 2.56-2.55s2.56 1.145 2.56 2.55c0 1.412-1.147 2.55-2.56 2.55zm0-3.789c-.678 0-1.227.548-1.227 1.227 0 .678.549 1.227 1.227 1.227.679 0 1.227-.549 1.227-1.227 0-.679-.548-1.227-1.227-1.227zm-3.796 3.789H1.704v-4.92h1.61v4.92zm-2.873-5.5a.995.995 0 1 0 0-1.99.995.995 0 0 0 0 1.99z"/></svg>
+                        Fiverr
+                    </a>
+                    <a href="mailto:nauman@example.com" class="contact-link">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        nauman@example.com
+                    </a>
+                </div>
+                
+                <!-- Print Only Contact Box -->
+                <div class="print-contact print-only">
+                    <h4>Get In Touch</h4>
+                    <p><strong>Email:</strong> nauman@example.com</p>
+                    <p><strong>LinkedIn:</strong> linkedin.com/in/nauman-ali</p>
+                    <p><strong>Upwork:</strong> upwork.com/freelancers/naumanali</p>
+                    <p><strong>Availability:</strong> January 2026</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <div class="logo-icon">N</div>
+                <span>Nauman Ali — Senior Paid Media Specialist</span>
+            </div>
+            <div class="footer-copy">© 2026. All case studies reflect real, verifiable results.</div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Get In Touch</h3>
+                <button class="modal-close" onclick="closeModal()">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="contactForm" onsubmit="submitForm(event)">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Your Name</label>
+                        <input type="text" id="name" class="form-input" placeholder="John Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input type="email" id="email" class="form-input" placeholder="john@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="company">Company / Brand</label>
+                        <input type="text" id="company" class="form-input" placeholder="Your Company">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="budget">Monthly Ad Budget</label>
+                        <input type="text" id="budget" class="form-input" placeholder="e.g., $10,000 - $50,000">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="message">Tell me about your project</label>
+                        <textarea id="message" class="form-textarea" placeholder="What are you looking to achieve? What platforms are you currently using? Any specific challenges?"></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Send Message</button>
+                </form>
+                
+                <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center;">
+                    <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 16px;">Or reach out directly:</p>
+                    <div style="display: flex; justify-content: center; gap: 24px;">
+                        <a href="mailto:nauman@example.com" style="color: var(--accent); text-decoration: none; font-size: 14px;">nauman@example.com</a>
+                        <a href="https://linkedin.com/in/nauman-ali" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 14px;">LinkedIn →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functions
+        function openModal() {
+            document.getElementById('contactModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('contactModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on overlay click
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Form submission
+        function submitForm(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            
+            // Show success message
+            const modalBody = document.querySelector('.modal-body');
+            modalBody.innerHTML = `
+                <div style="text-align: center; padding: 40px 0;">
+                    <svg width="64" height="64" fill="none" stroke="#10B981" stroke-width="2" viewBox="0 0 24 24" style="margin: 0 auto 24px;"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <h3 style="margin-bottom: 12px; font-size: 1.5rem;">Message Sent!</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 24px;">Thanks for reaching out. I'll get back to you within 24-48 hours.</p>
+                    <button class="btn btn-primary" onclick="closeModal()">Close</button>
+                </div>
+            `;
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card, .section-header').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
